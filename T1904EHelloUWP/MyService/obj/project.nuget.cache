@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "RBSuqSfMln3kFx+bmdkZfl43D5HbtQb4CSew0SB3Xyrg4HkFUzykWomwazQ/1msskRb4j3RvPc3b+hTUmRqnwA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ADMIN\\source\\repos\\T1904EHelloUWP\\MyService\\MyService.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
