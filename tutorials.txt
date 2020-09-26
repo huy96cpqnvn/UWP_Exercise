@@ -1,0 +1,82 @@
+PHẦN 1: SmartCrafts 01 =========================================
+=============Step 1 ======================
+View List Product 
+==========================================
+1. Create project ASP.NET MVC Core
+2. Add data folder (wwwroot) ==> product.json
+3. Add Models folder ==> Product.cs
+4. Add Services folder ==> JsonFileProductService.cs 
+5. Edit Startup.cs ==> ConfigureServices 
+services.AddTransient<JsonFileProductService>();
+6. Edit Index.cshtml.cs 
+ public IndexModel(ILogger<IndexModel> logger,
+              JsonFileProductService productService)
+        {
+            _logger = logger;
+            ProductService = productService;
+        }
+
+
+        public JsonFileProductService ProductService { get; }
+        public IEnumerable<Product> Products { get; private set; }
+
+        public void OnGet()
+        {
+            Products = ProductService.GetProducts();
+        }
+7. Edit Index.cshtml 
+@foreach (var product in Model.Products)
+{
+    <h2>@product.Title</h2>
+}
+8. Test View Index.html.cs 
+
+BÀI TẬP: SỬA CSS và HTML để đẹp như hình 
+
+PHẦN 2: SmartCrafts 02 =========================================
+========================== STEP 2=========================
+09. Edit index.cshtml
+10. Copy CSS
+12. Refresh để show trang đẹp 
+============== Make Simple API ============
+13. Tạo Web API 
+app.UseEndpoints(endpoints => 
+thêm đoạn /products vào 
+14. Test localhost:../products 
+view JSON data
+15. JSON Beautifier & En
+view JSON đẹp 
+add thêm extesion JSON Beautifier & Editor
+16. Test lại view JSON cho đẹp 
+
+============ Make Web API get product ================ 
+17. Add Controllers folder 
+Add file ProductsController.cs 
+triển khai tới ProductGet 
+18. Edit Startup.cs 
+Thêm vào ConfigureServices
+dòng services.AddControllers();
+sau dòng services.AddRazorPages();
+
+trong đoạn UseEndPoint thêm 
+endpoints.MapControllers();
+
+19. Test lại api 
+/products 
+
+============= Make Web API rating ============
+20. Edit JsonFileProductService.cs 
+AddRating function
+21. Edit ProductController.cs 
+thêm function 
+   [Route("Rate")]
+        [HttpGet]
+        public ActionResult Get(
+            [FromQuery] string ProductId,
+            [FromQuery] int Rating)
+        {
+            ProductService.AddRating(ProductId, Rating);
+            return Ok();
+        }
+22. Test products/rate 
+https://localhost:44388/products/rate?ProductId=thidk-01&Rating=5
